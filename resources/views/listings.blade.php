@@ -6,7 +6,7 @@
 
 <h2>
 <a href="/listings/{{$listing["id"]}}">
-{{$listing}}
+{{-- {{$listing}} --}}
 {{$listing['title']}}
 </a>
 </h2>

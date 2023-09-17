@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string("email");
             $table->string("website");
             $table->longText("description");
-
+            $table->timestamps(); // this wasn't added before when i first ran the `mirgate:refresh --seed`
         });
     }
 

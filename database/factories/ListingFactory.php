@@ -16,16 +16,19 @@ class ListingFactory extends Factory
      */
     public function definition()
     {
+        // so these act like your default columns when you create the
+        // the table apparently
         return [
             //
+            // 'tags'=>$this->faker->company(),
             'title'=>$this->faker->sentence(),
-            'tags'=>$this->faker->company(),
-            'tags'=>$this->faker->company(),
+            'tags'=>'api,laravel',
             'email'=>$this->faker->companyEmail(),
             'website'=>$this->faker->url(),
+            'company'=>$this->faker->company(),
             'location'=>$this->faker->city(),
             'description'=>$this->faker->paragraph(5),
-            
+
         ];
     }
 }
