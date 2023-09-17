@@ -1,5 +1,9 @@
+@extends ('layout')
+ {{-- by using the extends directive we are telling the listing.blade.php file
+     that it will be a child template of the  layout template --}}
 
-<h1> no listings</h1>
+@section('content')
+<h1> {{$heading}}</h1>
 @unless (count($listings)==0)
 
 @foreach ($listings as $listing)
@@ -15,4 +19,5 @@
 </p>
 @endforeach
 @endunless
+@endsection
 

@@ -104,5 +104,6 @@ class DatabaseSeeder extends Seeder
         // insert default column data via a factory
         Listing::factory(6)->create(); // this the factory i created via the <command>
         //php artisan make:factory ListingFactory . check the factories folder
+        // this factory function will create 6 rows in the Listings table
     }
 }
