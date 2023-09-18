@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -19,17 +20,36 @@ use App\Models\Listing;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    // when we want to pass data you pass a second argument to the view function
-    return view('listings',[
-        'heading'=>'latest listings',
-        'listings'=>Listing::all()
-    ]);
-});
+// Route::get('/', function () {
 
-Route::get("/listings/{id}",function($id){
-return view("listing",[
-    'listing'=>Listing::find($id)
-]);
+//     return view('listings',[
+//         'heading'=>'latest listings',
+//         'listings'=>Listing::all()
+//     ]);
+// });
 
-});
+// // single listing
+// Route::get("/listings/{id}",function($id){
+
+// // return view("listing",[
+// //     'listing'=>Listing::find($id)
+// // ]);
+
+// });
+
+// // single listing with Route model binding
+// Route::get("/listings/{id}",function(Listing $listing){
+
+// //     return view("listing",[
+// //         'listing'=>$listing
+
+// //     ]);
+
+//     });
+
+
+// routing using controller to show all listings
+//
+Route::get('/', [ListingController::class,"index"]);
+// routing using controller to show single listing
+Route::get('/listings/{listing}', [ListingController::class,"show"]);
