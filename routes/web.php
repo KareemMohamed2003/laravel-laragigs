@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\ListingController;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
-;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Listing;;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +49,13 @@ use App\Models\Listing;
 
 // routing using controller to show all listings
 //
-Route::get('/', [ListingController::class,"index"]);
+Route::get('/', [ListingController::class, "index"]);
+
+// show create form
+Route::get('/listings/create', [ListingController::class, "create"]);
+
+Route::post('/listings', [ListingController::class, "store"]);
 // routing using controller to show single listing
-Route::get('/listings/{listing}', [ListingController::class,"show"]);
+Route::get('/listings/{listing}', [ListingController::class, "show"]); // make  sure to understand what this route  does .
+
+// remember laravel will look t the routes by order so that matters as well
