@@ -41,12 +41,34 @@
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-24" src='{{ asset('images/logo.png') }}'alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
-            <li>
-                <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-            </li>
-            <li>
-                <a href="login.html" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
-            </li>
+            @auth
+                {{--  if there is a user autheticatedc show these two li tags --}}
+                <li>
+                    <span class="font-bold ">
+                        welcome : {{ auth()->user()->name }}
+                    </span>
+                </li>
+                <li>
+                    <a href="/listing/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>manage listing</a>
+                </li>
+                <li>
+                    <form class="inline" method="POST" action="logout">
+
+                        @csrf
+                        <button type="submit">
+                            <i class="fa-solid fa-door-closed"></i>logout
+                        </button>
+                    </form>
+                </li>
+            @else
+                {{--  else  if there is  user authenticated show these two li tags --}}
+                <li>
+                    <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
+                </li>
+                <li>
+                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+                </li>
+            @endauth
         </ul>
     </nav>
     <main>

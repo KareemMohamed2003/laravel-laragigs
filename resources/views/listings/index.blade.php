@@ -1,6 +1,4 @@
 <x-layout>
-
-
     @include('partials._hero')
     {{-- includes is like import so here we are importing thr partials._hero --}}
     @include('partials._search')
@@ -15,5 +13,10 @@
                 --}}
             @endforeach
         @endunless
+    </div>
+    <div class="mt-6 p-4">
+
+        {{ $listings->links() }}
+        {{--  so this would show the pages links  --}}
     </div>
 </x-layout>

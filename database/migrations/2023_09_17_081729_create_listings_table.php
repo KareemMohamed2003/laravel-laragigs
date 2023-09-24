@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
+
         // you first have to create the migration via the `php artisan make migration : migration_name`
         // now rememeber that u need to run the migrate command to run the migration
         // and create the table with the columns below id, title , tags ,
         // company,location,email, website , description .
+        // keep in mind that  php artisan migrate:refresh --seed will remove any data you have added and will reset to the default data that is generated from the factory .  
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            $table->string("logo")->nullable(); // this is column logo will store the file path we will upload
             $table->string("tags");
             $table->string("company");
             $table->string("location");
@@ -28,6 +31,7 @@ return new class extends Migration
             $table->longText("description");
             $table->timestamps(); // this wasn't added before when i first ran the `mirgate:refresh --seed`
         });
+        
     }
 
     /**
